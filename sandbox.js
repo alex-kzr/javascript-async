@@ -15,12 +15,33 @@ const getTodos = (resource, callback) => {
     request.send();
 };
 
-getTodos('todos/alex.json', (err, data) => {
+// getTodos('todos/alex.json', (err, data) => {
+//     console.log(data);
+//     getTodos('todos/luigi.json', (err, data) => {
+//         console.log(data);
+//         getTodos('todos/mario.json', (err, data) => {
+//             console.log(data);    
+//         });    
+//     });   
+// });
+
+// promise example
+const getSomething = () => {
+    return new Promise((resolve, reject) => {
+        // fetch something
+        resolve('some data');
+        //reject('some error');
+    });
+};
+
+// getSomething().then(data => {
+//     console.log(data);
+// }, error => {
+//     console.log(error);
+// });
+
+getSomething().then(data => {
     console.log(data);
-    getTodos('todos/luigi.json', (err, data) => {
-        console.log(data);
-        getTodos('todos/mario.json', (err, data) => {
-            console.log(data);    
-        });    
-    });   
+}).catch(err => {
+    console.log(err);
 });
